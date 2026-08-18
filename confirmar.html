@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Confirmação de participação</title>
+
+    <link
+        rel="stylesheet"
+        href="/styles.css"
+    >
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Confirmação de participação</h1>
+
+        <p id="mensagem">
+            Carregando convite...
+        </p>
+
+
+        <section
+            id="conteudoConfirmacao"
+            style="display: none;"
+        >
+
+            <h2 id="tituloReuniaoConfirmacao"></h2>
+
+            <p>
+                Membro:
+                <strong id="nomeMembroConfirmacao"></strong>
+            </p>
+
+            <p id="dataReuniaoConfirmacao"></p>
+
+            <p id="localReuniaoConfirmacao"></p>
+
+            <p id="statusAtualConfirmacao"></p>
+
+
+            <button
+                type="button"
+                id="btnConfirmarPresenca"
+            >
+                Confirmo minha presença
+            </button>
+
+
+            <button
+                type="button"
+                id="btnNaoParticiparei"
+            >
+                Não participarei
+            </button>
+
+
+            <div
+                id="areaJustificativa"
+                style="display: none;"
+            >
+
+                <h3>Justificativa</h3>
+
+                <textarea
+                    id="justificativaAusencia"
+                    rows="5"
+                    placeholder="Informe sua justificativa"
+                ></textarea>
+
+                <br>
+
+                <button
+                    type="button"
+                    id="btnEnviarJustificativa"
+                >
+                    Enviar justificativa
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/confirmar.js"></script>
+
+</body>
+
+</html>

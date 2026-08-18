@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+    <title>Priorado 146</title>
+</head>
+<body>
+    <form id="formMembro">
+
+    <label for="nome">Nome:</label>
+
+    <input
+        type="text"
+        id="nome"
+        placeholder="Digite o nome do membro"
+        required
+    >
+    <div>
+    <label for="emailMembro">
+        E-mail
+    </label>
+
+    <input
+        type="email"
+        id="emailMembro"
+        placeholder="nome@exemplo.com"
+    >
+</div>
+
+    <button type="submit">
+        Salvar membro
+    </button>
+
+</form>
+
+<p id="resultado"></p>
+<h2>Membros cadastrados</h2>
+<ul id="listaMembros"></ul>
+<hr>
+
+
+<section id="areaReunioes">
+
+    <h2>Reuniões</h2>
+
+
+    <<form id="formReuniao">
+
+    <div>
+        <label>Tipo de reunião</label>
+
+        <label>
+            <input
+                type="radio"
+                name="tipoReuniao"
+                value="UNICA"
+                checked
+            >
+            Única
+        </label>
+
+        <label>
+            <input
+                type="radio"
+                name="tipoReuniao"
+                value="RECORRENTE"
+            >
+            Recorrente
+        </label>
+    </div>
+
+
+    <div>
+        <label for="tituloReuniao">
+            Título
+        </label>
+
+        <input
+            type="text"
+            id="tituloReuniao"
+            required
+        >
+    </div>
+
+
+    <div>
+        <label for="objetivoReuniao">
+            Objetivo
+        </label>
+
+        <textarea
+            id="objetivoReuniao"
+        ></textarea>
+    </div>
+
+
+    <div>
+        <label for="localReuniao">
+            Local
+        </label>
+
+        <input
+            type="text"
+            id="localReuniao"
+        >
+    </div>
+
+
+    <!-- ===============================================
+         REUNIÃO ÚNICA
+    ================================================ -->
+
+    <div id="camposReuniaoUnica">
+
+        <h4>Data da reunião</h4>
+
+        <div>
+            <label for="dataReuniao">
+                Data
+            </label>
+
+            <input
+                type="date"
+                id="dataReuniao"
+            >
+        </div>
+
+
+        <div>
+            <label for="horaReuniao">
+                Hora
+            </label>
+
+            <input
+                type="time"
+                id="horaReuniao"
+            >
+        </div>
+
+    </div>
+
+
+    <!-- ===============================================
+         REUNIÃO RECORRENTE
+    ================================================ -->
+
+    <div
+        id="camposReuniaoRecorrente"
+        style="display: none;"
+    >
+
+        <h4>Configuração da recorrência</h4>
+
+
+        <div>
+            <label for="tipoRecorrencia">
+                Periodicidade
+            </label>
+
+            <select id="tipoRecorrencia">
+
+                <option value="SEMANAL">
+                    Semanal
+                </option>
+
+                <option value="QUINZENAL">
+                    Quinzenal
+                </option>
+
+                <option
+                    value="MENSAL_DIA_SEMANA"
+                    selected
+                >
+                    Mensal
+                </option>
+
+            </select>
+        </div>
+
+
+        <div>
+            <label for="diaSemanaRecorrencia">
+                Dia da semana
+            </label>
+
+            <select id="diaSemanaRecorrencia">
+
+                <option value="0">
+                    Segunda-feira
+                </option>
+
+                <option value="1">
+                    Terça-feira
+                </option>
+
+                <option value="2">
+                    Quarta-feira
+                </option>
+
+                <option value="3">
+                    Quinta-feira
+                </option>
+
+                <option value="4">
+                    Sexta-feira
+                </option>
+
+                <option value="5">
+                    Sábado
+                </option>
+
+                <option value="6">
+                    Domingo
+                </option>
+
+            </select>
+        </div>
+
+
+        <div id="campoOrdemMes">
+
+            <label for="ordemMesRecorrencia">
+                Posição no mês
+            </label>
+
+            <select id="ordemMesRecorrencia">
+
+                <option value="1">
+                    Primeira
+                </option>
+
+                <option value="2">
+                    Segunda
+                </option>
+
+                <option value="3">
+                    Terceira
+                </option>
+
+                <option value="4">
+                    Quarta
+                </option>
+
+                <option value="5">
+                    Quinta
+                </option>
+
+                <option value="-1">
+                    Última
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div>
+            <label for="horaRecorrencia">
+                Hora
+            </label>
+
+            <input
+                type="time"
+                id="horaRecorrencia"
+            >
+        </div>
+
+
+        <div>
+            <label for="dataInicioRecorrencia">
+                Data inicial
+            </label>
+
+            <input
+                type="date"
+                id="dataInicioRecorrencia"
+            >
+        </div>
+
+
+        <div>
+            <label for="dataFimRecorrencia">
+                Data final
+            </label>
+
+            <input
+                type="date"
+                id="dataFimRecorrencia"
+            >
+
+            <small>
+                Opcional
+            </small>
+        </div>
+
+
+        <div>
+            <label for="quantidadeRecorrencia">
+                Quantidade de reuniões
+            </label>
+
+            <input
+                type="number"
+                id="quantidadeRecorrencia"
+                min="1"
+                max="60"
+                value="6"
+            >
+        </div>
+
+    </div>
+
+
+    <button type="submit">
+        Criar reunião
+    </button>
+
+</form>
+
+
+    <p id="resultadoReuniao"></p>
+
+
+    <h3>Reuniões cadastradas</h3>
+
+    <div id="listaReunioes"></div>
+
+</section>
+
+
+<hr>
+
+
+<section
+    id="areaParticipantes"
+    style="display: none;"
+>
+
+    <h2 id="tituloParticipantes">
+        Participantes
+    </h2>
+
+
+    <div>
+
+        <label for="selectMembroParticipante">
+            Adicionar membro
+        </label>
+
+        <select id="selectMembroParticipante">
+
+            <option value="">
+                Selecione...
+            </option>
+
+        </select>
+
+
+        <button
+            type="button"
+            id="btnAdicionarParticipante"
+        >
+            Adicionar participante
+        </button>
+
+    </div>
+
+
+    <p id="resultadoParticipante"></p>
+
+
+    <h3>Participantes da reunião</h3>
+
+    <div id="listaParticipantes"></div>
+
+</section>
+<hr>
+
+<section id="areaSeries">
+
+    <h2>Séries recorrentes</h2>
+
+    <button
+        type="button"
+        id="btnAtualizarSeries"
+    >
+        Atualizar séries
+    </button>
+
+    <div id="listaSeries"></div>
+
+</section>
+
+
+<hr>
+
+
+<section
+    id="areaParticipantesSerie"
+    style="display: none;"
+>
+
+    <h2 id="tituloParticipantesSerie">
+        Participantes da série
+    </h2>
+
+    <div>
+
+        <label for="selectMembroSerie">
+            Adicionar membro
+        </label>
+
+        <select id="selectMembroSerie">
+
+            <option value="">
+                Selecione...
+            </option>
+
+        </select>
+
+        <button
+            type="button"
+            id="btnAdicionarParticipanteSerie"
+        >
+            Adicionar à série
+        </button>
+
+    </div>
+
+    <p id="resultadoParticipanteSerie"></p>
+
+    <h3>Membros vinculados</h3>
+
+    <div id="listaParticipantesSerie"></div>
+
+</section>
+<hr>
+
+<section id="areaConvites">
+
+    <h2>Convites das reuniões</h2>
+
+    <p>
+        Selecione uma reunião para gerar
+        ou visualizar os links individuais
+        dos participantes.
+    </p>
+
+    <div>
+
+        <label for="selectReuniaoConvites">
+            Reunião
+        </label>
+
+        <select id="selectReuniaoConvites">
+
+            <option value="">
+                Selecione uma reunião...
+            </option>
+
+        </select>
+
+        <button
+            type="button"
+            id="btnGerarConvites"
+        >
+            Gerar / Visualizar convites
+        </button>
+
+    </div>
+
+
+    <p id="resultadoConvites"></p>
+
+
+    <div id="listaConvites"></div>
+
+</section>
+<hr>
+
+<section id="areaNotificacoes">
+
+    <h2>Notificações</h2>
+
+    <div id="resumoNotificacoes">
+
+        <p>
+            Pendentes:
+            <strong id="totalNotificacoesPendentes">
+                0
+            </strong>
+        </p>
+
+        <p>
+            Enviadas:
+            <strong id="totalNotificacoesEnviadas">
+                0
+            </strong>
+        </p>
+
+        <p>
+            Com erro:
+            <strong id="totalNotificacoesErro">
+                0
+            </strong>
+        </p>
+
+        <p>
+            Sem destinatário:
+            <strong id="totalNotificacoesSemDestinatario">
+                0
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <button
+            type="button"
+            id="btnAtualizarNotificacoes"
+        >
+            Atualizar notificações
+        </button>
+
+
+        <button
+            type="button"
+            id="btnProcessarFila"
+        >
+            Processar fila
+        </button>
+        <button
+    type="button"
+    id="btnExecutarCicloAutomatico"
+>
+    Executar ciclo automático
+</button>
+
+    </div>
+
+
+    <p id="resultadoProcessamentoFila"></p>
+
+
+    <div id="listaNotificacoes"></div>
+
+</section>
+
+<section id="areaConfiguracoesLembrete">
+
+    <h2>⚙️ Configuração de lembretes</h2>
+
+    <p>
+        Escolha quais lembretes automáticos
+        devem ser enviados antes das reuniões.
+    </p>
+
+
+    <div
+        id="listaConfiguracoesLembrete"
+        class="config-lembretes-grid"
+    >
+    </div>
+
+
+    <p
+        id="resultadoConfiguracoesLembrete"
+        class="mensagem-configuracao"
+    >
+    </p>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
